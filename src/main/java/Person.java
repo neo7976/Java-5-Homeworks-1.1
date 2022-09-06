@@ -18,6 +18,8 @@ public class Person {
         this.age = setAge(age);
     }
 
+    public Person() {
+    }
 
     public boolean hasAge() {
         return this.age != 0;

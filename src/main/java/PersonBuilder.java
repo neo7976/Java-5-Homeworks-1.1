@@ -1,14 +1,10 @@
 public class PersonBuilder {
-    private String name;
-    private String surname;
-    private int age;
-    private String address;
+    private Person person;
 
     //todo заполнить корректно класс builder
 
-
     public PersonBuilder setName(String name) {
-        this.name = name;
+        person.getName() = name;
         return this;
     }
 
@@ -17,9 +13,17 @@ public class PersonBuilder {
         return this;
     }
 
-    public PersonBuilder setAge(int age) { /*...*/ }
+    public PersonBuilder setAge(int age) {
+        this.age = age;
+        return this;
+    }
 
-    public PersonBuilder setAddress(String address) { /*...*/ }
+    public PersonBuilder setAddress(String address) {
+        this.address = address;
+        return this;
+    }
 
-    public Person build() { /*...*/ }
+    public Person build() {
+        return new Person();
+    }
 }
