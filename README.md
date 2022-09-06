@@ -115,3 +115,7 @@ public class Main {
 }
 ```
 6. Протестируйте работу программы. Не забывайте про правила форматирования кода (для автоформата можете выделить код в идее и нажать **Ctrl+Alt+L**).
+
+https://vertex-academy.com/tutorials/ru/pattern-builder-java/
+https://habr.com/ru/company/otus/blog/552412/
+http://developer.alexanderklimov.ru/android/java/builder.php
