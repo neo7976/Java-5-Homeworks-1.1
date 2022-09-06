@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.OptionalInt;
 
 public class Person {
@@ -18,9 +19,13 @@ public class Person {
     }
 
 
-    public boolean hasAge() { /*...*/ }
+    public boolean hasAge() {
+        return this.age != 0;
+    }
 
-    public boolean hasAddress() { /*...*/ }
+    public boolean hasAddress() {
+        return this.address != null;
+    }
 
     public String getName() {
         return name;
@@ -39,26 +44,42 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        if (hasAge())
-            return OptionalInt.of(age);
-        return OptionalInt.of(-1);
+        return hasAge() ? OptionalInt.of(age) : OptionalInt.empty();
     }
 
-
     public String getAddress() {
-        return address;
+        return hasAddress() ? address : null;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public void happyBirthday() { /*...*/ }
+    public void happyBirthday() {
+        this.age += 1;
+    }
 
     @Override
-    public String toString() { /*...*/ }
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
     @Override
-    public int hashCode() { /*...*/ }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return age == person.age && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(address, person.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, age, address);
+    }
 }
-}
+
