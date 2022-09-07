@@ -1,5 +1,3 @@
-import java.util.OptionalInt;
-
 public class Main {
     public static void main(String[] args) {
         Person mom = new Person.PersonBuilder()
@@ -8,10 +6,6 @@ public class Main {
                 .setAge(31)
                 .setAddress("Сидней")
                 .build();
-        System.out.println(mom);
-        System.out.println(mom.getAge());
-        mom.happyBirthday();
-        System.out.println(mom.getAge());
         Person son = mom.newChildBuilder()
                 .setName("Антошка")
                 .build();
