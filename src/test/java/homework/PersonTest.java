@@ -61,4 +61,15 @@ class PersonTest {
         Assertions.assertDoesNotThrow(() -> person.setAge(10));
     }
 
+    @Test
+    void buildException_test() {
+        Assertions.assertThrows(IllegalStateException.class, () -> new Person.PersonBuilder().build());
+        Assertions.assertThrows(IllegalStateException.class, () -> new Person.PersonBuilder().setName("Ольга").build());
+        Assertions.assertThrows(IllegalStateException.class, () -> new Person.PersonBuilder().setSurname("Собина").build());
+    }
+
+    @Test
+    void build_test() {
+        Assertions.assertDoesNotThrow(() -> new Person.PersonBuilder().setName("Ольга").setSurname("Собина").build());
+    }
 }

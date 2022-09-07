@@ -146,7 +146,7 @@ public class Person {
         }
 
         private boolean validatePerson() {
-            if (name == null && surname == null) {
+            if (name == null || surname == null) {
                 throw new IllegalStateException("Не хватает обязательных параметров для создания класса");
             } else
                 return true;
