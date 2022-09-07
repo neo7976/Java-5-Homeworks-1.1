@@ -58,7 +58,7 @@ class PersonTest {
     @Test
     void ageException_test() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> person.setAge(-5));
-        Assertions.assertDoesNotThrow(()->person.setAge(10));
+        Assertions.assertDoesNotThrow(() -> person.setAge(10));
     }
 
 }
