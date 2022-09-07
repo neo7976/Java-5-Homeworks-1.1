@@ -76,6 +76,11 @@ public class Person {
             throw new IllegalArgumentException("Мы не знаем возраст Персоны");
     }
 
+    //todo Написать возврат ребёнка с фамилией от кого создается
+    public PersonBuilder newChildBuilder() {
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Person{" +

@@ -12,10 +12,10 @@ public class Main {
         System.out.println(mom.getAge());
         mom.happyBirthday();
         System.out.println(mom.getAge());
-//        Person son = mom.newChildBuilder()
-//                .setName("Антошка")
-//                .build();
-//        System.out.println("У " + mom + " есть сын, " + son);
+        Person son = mom.newChildBuilder()
+                .setName("Антошка")
+                .build();
+        System.out.println("У " + mom + " есть сын, " + son);
 
         try {
             // Не хватает обязательных полей
