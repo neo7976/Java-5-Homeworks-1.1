@@ -19,6 +19,10 @@ public class Person {
     }
 
     public Person(PersonBuilder personBuilder) {
+        this.name = personBuilder.name;
+        this.surname = personBuilder.surname;
+        this.age = setAge(personBuilder.age);
+        this.address = personBuilder.address;
     }
 
     public boolean hasAge() {
@@ -39,7 +43,7 @@ public class Person {
 
     public int setAge(int age) {
         if (age < 0)
-            throw new IllegalArgumentException("Такого возраста не существует");
+            throw new IllegalArgumentException("Возраст не может быть отрицательным");
         else
             this.age = age;
         return age;
@@ -58,7 +62,7 @@ public class Person {
     }
 
     public String getAddress() {
-        return hasAddress() ? address : null;
+        return hasAddress() ? address : "Отсутствует поле адреса";
     }
 
     public void setAddress(String address) {
@@ -66,7 +70,10 @@ public class Person {
     }
 
     public void happyBirthday() {
-        this.age += 1;
+        if (hasAge())
+            this.age += 1;
+        else
+            throw new IllegalArgumentException("Мы не знаем возраст Персоны");
     }
 
     @Override
@@ -90,6 +97,51 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(name, surname, age, address);
+    }
+
+    public static class PersonBuilder {
+        private String name;
+        private String surname;
+        private int age;
+        private String address;
+
+        public PersonBuilder() {
+            super();
+        }
+
+        public PersonBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public PersonBuilder setSurname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public PersonBuilder setAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public PersonBuilder setAddress(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public Person build() {
+            Person person = null;
+            if (validatePerson())
+                person = new Person(this);
+            return person;
+        }
+
+        private boolean validatePerson() {
+            if (name == null && surname == null) {
+                throw new IllegalStateException("Не хватает обязательных параметров для создания класса");
+            } else
+                return true;
+        }
     }
 }
 
