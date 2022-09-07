@@ -18,7 +18,7 @@ public class Person {
         this.age = setAge(age);
     }
 
-    public Person() {
+    public Person(PersonBuilder personBuilder) {
     }
 
     public boolean hasAge() {
@@ -47,6 +47,14 @@ public class Person {
 
     public OptionalInt getAge() {
         return hasAge() ? OptionalInt.of(age) : OptionalInt.empty();
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getAddress() {

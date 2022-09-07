@@ -4,26 +4,26 @@ public class PersonBuilder {
     //todo заполнить корректно класс builder
 
     public PersonBuilder setName(String name) {
-        person.getName() = name;
+        person.setName(name);
         return this;
     }
 
     public PersonBuilder setSurname(String surname) {
-        this.surname = surname;
+        person.setSurname(surname);
         return this;
     }
 
     public PersonBuilder setAge(int age) {
-        this.age = age;
+        person.setAge(age);
         return this;
     }
 
     public PersonBuilder setAddress(String address) {
-        this.address = address;
+        person.setAddress(address);
         return this;
     }
 
     public Person build() {
-        return new Person();
+        return new Person(this);
     }
 }
