@@ -1,3 +1,5 @@
+package homework;
+
 import java.util.Objects;
 import java.util.OptionalInt;
 
@@ -16,6 +18,9 @@ public class Person {
         this.name = name;
         this.surname = surname;
         this.age = setAge(age);
+    }
+
+    public Person() {
     }
 
     public Person(PersonBuilder personBuilder) {
@@ -82,7 +87,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "homework.Person{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
