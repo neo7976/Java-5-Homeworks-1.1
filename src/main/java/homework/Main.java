@@ -13,6 +13,12 @@ public class Main {
                 .build();
         System.out.println("У " + mom + " есть сын, " + son);
 
+        Person.PersonBuilder pap = new Person.PersonBuilder().setName("Dmitrii");
+        pap.setSurname("Sobin");
+        Person papa = pap.build();
+        Person son2 = papa.newChildBuilder().setName("Mile").build();
+        System.out.println("У " + papa + " есть сын, " + son2);
+
         try {
             // Не хватает обязательных полей
             new Person.PersonBuilder().build();
