@@ -20,9 +20,6 @@ public class Person {
         this.age = setAge(age);
     }
 
-    public Person() {
-    }
-
     public Person(PersonBuilder personBuilder) {
         this.name = personBuilder.name;
         this.surname = personBuilder.surname;
@@ -87,7 +84,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "homework.Person{" +
+        return "Person{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
@@ -146,7 +143,7 @@ public class Person {
         }
 
         private boolean validatePerson() {
-            if (name == null || surname == null) {
+            if (name == null || surname == null || name.trim().isEmpty() || surname.trim().isEmpty()) {
                 throw new IllegalStateException("Не хватает обязательных параметров для создания класса");
             } else
                 return true;
